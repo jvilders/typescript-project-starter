@@ -1,3 +1,4 @@
+// @ts-check
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
@@ -24,7 +25,7 @@ export default tseslint.config(
       globals: globals.browser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: import.meta.url,
       },
     },
   },
@@ -33,4 +34,3 @@ export default tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   eslintConfigPrettier,
 );
-// {files: ["src/**/*.{js,mjs,cjs,ts}"]},

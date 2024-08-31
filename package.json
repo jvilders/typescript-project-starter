@@ -5,6 +5,9 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.4",
     "@eslint/js": "^9.9.1",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
+    "@types/fs-extra": "^11.0.4",
     "@vitest/coverage-istanbul": "^2.0.5",
     "@vitest/ui": "^2.0.5",
     "eslint": "^9.9.1",
