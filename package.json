@@ -5,6 +5,8 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.4",
     "@eslint/js": "^9.9.1",
+    "@vitest/coverage-istanbul": "^2.0.5",
+    "@vitest/ui": "^2.0.5",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "fs-extra": "^11.2.0",
@@ -12,13 +14,16 @@
     "npm-run-all": "^4.1.5",
     "prettier": "3.3.3",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.3.0"
+    "typescript-eslint": "^8.3.0",
+    "vitest": "^2.0.5"
   },
   "scripts": {
     "lint": "eslint --fix --max-warnings=0",
     "lint-ci": "eslint --max-warnings=0",
     "format": "prettier . --write",
     "format-ci": "prettier . --check",
+    "test": "vitest --ui",
+    "test-ci": "vitest run",
     "build": "node ./scripts/build.mjs",
     "check-types": "attw --pack ."
   },

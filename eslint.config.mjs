@@ -10,7 +10,7 @@ export default tseslint.config(
     files: ["src/**/*.ts"],
   },
   {
-    ignores: ["build/", "scripts/", "eslint.config.mjs"],
+    ignores: ["build/", "tests/", "scripts/", "eslint.config.mjs"],
   },
   {
     languageOptions: {
