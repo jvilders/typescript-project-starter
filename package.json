@@ -16,7 +16,9 @@
   },
   "scripts": {
     "lint": "eslint --fix --max-warnings=0",
+    "lint-ci": "eslint --max-warnings=0",
     "format": "prettier . --write",
+    "format-ci": "prettier . --check",
     "build": "node ./scripts/build.mjs",
     "check-types": "attw --pack ."
   },
