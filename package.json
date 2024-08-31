@@ -1,0 +1,45 @@
+{
+  "name": "project-template",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.4",
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "fs-extra": "^11.2.0",
+    "globals": "^15.9.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.3.0"
+  },
+  "scripts": {
+    "lint": "eslint --fix --max-warnings=0",
+    "format": "prettier . --write",
+    "build": "node ./scripts/build.mjs",
+    "check-types": "attw --pack ."
+  },
+  "main": "./build/dist/cjs/index.js",
+  "module": "./build/dist/esm/index.js",
+  "types": "./build/dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./build/dist/esm/index.d.ts",
+        "default": "./build/dist/esm/index.js"
+      },
+      "require": {
+        "types": "./build/dist/cjs/index.d.ts",
+        "default": "./build/dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "build"
+  ],
+  "keywords": [
+    "dual package",
+    "typescript"
+  ]
+}
