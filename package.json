@@ -28,6 +28,7 @@
     "lint": "eslint --fix --max-warnings=0",
     "lint-ci": "eslint --max-warnings=0",
     "format": "prettier . --write",
+    "format-hook": "prettier --write",
     "format-ci": "prettier . --check",
     "test": "vitest watch",
     "test-ci": "vitest run",
