@@ -1,6 +1,11 @@
 # https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
 # I'm not using the {changed files} options. Unless a repo is massive, it's
 # better to always check everything.
+commit-msg:
+  commands:
+    check-commit-message-format:
+      run: pnpm exec commitlint --edit --color --verbose
+
 pre-commit:
   parallel: true
   commands:
