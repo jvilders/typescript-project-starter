@@ -13,8 +13,10 @@ pre-commit:
       # same pattern as tsconfig.eslint.json
       glob: "{src,scripts,tests}/*.{js,mjs,ts}"
       run: pnpm lint {staged_files}
+      stage_fixed: true
     format:
       run: pnpm format-hook {staged_files}
+      stage_fixed: true
 
 pre-push:
   parallel: true
