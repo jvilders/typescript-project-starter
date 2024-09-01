@@ -29,7 +29,7 @@
     "test-ci": "vitest run",
     "typecheck": "tsc --project tsconfig.eslint.json --noEmit",
     "build": "node ./scripts/build.mjs",
-    "check-bundle-types": "attw --pack ."
+    "check-bundle-types": "pnpm build && attw --pack ."
   },
   "main": "./build/dist/cjs/index.js",
   "module": "./build/dist/esm/index.js",
