@@ -1,0 +1,12 @@
+name: Pull request workflow
+on:
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  code-checks:
+    uses: ./.github/workflows/code-checks.yml
+
+  build:
+    uses: ./.github/workflows/build.yml
+    needs: code-checks

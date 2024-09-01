@@ -1,0 +1,40 @@
+name: Code checks
+
+on:
+  workflow_call:
+
+jobs:
+  code-checks:
+    name: Code checks
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup project
+        uses: ./.github/actions/setup-action
+
+      - name: Lint
+        id: lint
+        run: |
+          pnpm lint-ci
+
+      - name: Format
+        id: format
+        run: |
+          pnpm format-ci
+
+      - name: Typecheck
+        id: typecheck
+        run: |
+          pnpm typecheck
+
+      - name: Unit-test
+        id: unit-test
+        run: |
+          pnpm test-ci

@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup project
+        uses: ./.github/actions/setup-action
+
+      - name: Build
+        id: build
+        run: |
+          pnpm build
+
+      - name: Check bundle types
+        id: check-bundle-types
+        run: |
+          pnpm check-bundle-types
+
+      - name: Archive build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-package
+          path: build
