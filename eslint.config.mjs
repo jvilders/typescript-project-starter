@@ -5,18 +5,13 @@ import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 export default tseslint.config(
-  // unless files and ignores are the only key in their objects, they will only apply to that specific configuration.
-  // These are intended to be global, so they're separate, even though it looks goofy.
-  {
-    files: ["src/**/*.ts"],
-  },
+  // Unless 'ignores' is the only key in the object, the given patterns only apply to that specific configuration.
+  // These ignore patterns are intended to be global, so it's in a separate object, even though it looks goofy.
   {
     ignores: [
       "eslint.config.mjs",
       "vitest.config.mts",
       "build/",
-      "tests/",
-      "scripts/",
       "coverage/",
     ],
   },
@@ -24,8 +19,10 @@ export default tseslint.config(
     languageOptions: {
       globals: globals.browser,
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.url,
+        // projectService didn't seem to pick up the tsconfig file, 
+        // so using the project option instead
+        project: "./tsconfig.eslint.json",
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },

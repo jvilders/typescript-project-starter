@@ -25,10 +25,11 @@
     "lint-ci": "eslint --max-warnings=0",
     "format": "prettier . --write",
     "format-ci": "prettier . --check",
-    "test": "vitest --ui",
+    "test": "vitest watch",
     "test-ci": "vitest run",
+    "typecheck": "tsc --project tsconfig.eslint.json --noEmit",
     "build": "node ./scripts/build.mjs",
-    "check-types": "attw --pack ."
+    "check-bundle-types": "attw --pack ."
   },
   "main": "./build/dist/cjs/index.js",
   "module": "./build/dist/esm/index.js",

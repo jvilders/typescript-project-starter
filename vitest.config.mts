@@ -1,5 +1,6 @@
 import { defineConfig } from "vitest/config";
 
+const TRESHOLD = 80;
 export default defineConfig({
   test: {
     coverage: {
@@ -8,7 +9,10 @@ export default defineConfig({
       reporter: ["html", "text"],
       include: ["src/**/*.ts"],
       thresholds: {
-        lines: 80,
+        lines: TRESHOLD,
+        branches: TRESHOLD,
+        statements: TRESHOLD,
+        functions: TRESHOLD,
       },
     },
     include: ["tests/**/*.ts"],
