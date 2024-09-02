@@ -1,0 +1,30 @@
+name: Publish
+
+on:
+  workflow_call:
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+      checks: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup project
+        uses: ./.github/actions/setup-action
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: built-package
+          path: build
+
+      - name: Publish (dry run)
+        run: pnpm publish --dry-run
