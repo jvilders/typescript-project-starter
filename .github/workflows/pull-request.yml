@@ -4,8 +4,12 @@ on:
     branches: [master, main]
 
 jobs:
+  cache-dependencies:
+    uses: ./.github/workflows/cache-dependencies.yml
+
   code-checks:
     uses: ./.github/workflows/code-checks.yml
+    needs: cache-dependencies
 
   build:
     uses: ./.github/workflows/build.yml

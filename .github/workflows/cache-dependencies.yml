@@ -1,0 +1,15 @@
+name: Cache dependencies
+
+on:
+  workflow_call:
+
+jobs:
+  cache-dependencies:
+    name: Cache dependencies
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+    steps:
+      - name: Setup project
+        uses: ./.github/actions/setup-action
