@@ -4,6 +4,11 @@ description: "This action checks out the commit, sets up Node and pnpm, then ins
 runs:
   using: "composite"
   steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
     - name: Setup pnpm
       id: setup-pnpm
       uses: pnpm/action-setup@v4 # reads version from packageManager field in package.json
