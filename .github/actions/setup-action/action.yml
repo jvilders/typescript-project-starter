@@ -1,5 +1,14 @@
 name: "Project setup"
 description: "This action checks out the commit, sets up Node and pnpm, then installs the project"
+inputs:
+  pre-install-script: # id of input
+    description: "File path from root of project to a (JavaScript) pre-install script to run prior to installing dependencies"
+    required: false
+    default: ""
+  pre-install-context:
+    description: "JSON string of an object, will be provided to environment of pre-install script"
+    required: false
+    default: ""
 
 runs:
   using: "composite"
@@ -15,7 +24,14 @@ runs:
         node-version-file: ".nvmrc"
         cache: pnpm
 
-    - name: Install dependencies
-      id: install-dependencies
+    - name: Run pre-install script
+      if: ${{ inputs.pre-install-script != '' }}
+      id: preinstall-script
       shell: bash
-      run: pnpm install
+      run: node ${{ inputs.pre-install-script }}
+      env: ${{ fromJSON(inputs.pre-install-context) }}
+
+    # - name: Install dependencies
+    #   id: install-dependencies
+    #   shell: bash
+    #   run: pnpm install

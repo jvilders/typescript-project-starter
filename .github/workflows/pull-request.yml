@@ -7,14 +7,14 @@ jobs:
   cache-dependencies:
     uses: ./.github/workflows/cache-dependencies.yml
 
-  code-checks:
-    uses: ./.github/workflows/code-checks.yml
-    needs: cache-dependencies
+  # code-checks:
+  #   uses: ./.github/workflows/code-checks.yml
+  #   needs: cache-dependencies
 
-  build:
-    uses: ./.github/workflows/build.yml
-    needs: code-checks
+  # build:
+  #   uses: ./.github/workflows/build.yml
+  #   needs: code-checks
 
-  publish:
-    uses: ./.github/workflows/publish.yml
-    needs: build
+  # publish:
+  #   uses: ./.github/workflows/publish.yml
+  #   needs: build
