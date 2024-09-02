@@ -34,7 +34,7 @@ I'm interested in the developer experience of this tool, so I want to use it in 
 
 ## Prerequisites
 
-- The Node version specified in the `.nvmrc` file (`nvm` can be used for this)
+- The Node version specified in the `.nvmrc` file ([`nvm`](https://github.com/nvm-sh/nvm) can be used for this)
 
 ## Installation
 
