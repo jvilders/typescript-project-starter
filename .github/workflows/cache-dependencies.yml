@@ -1,0 +1,20 @@
+name: Cache dependencies
+
+on:
+  workflow_call:
+
+jobs:
+  cache-dependencies:
+    name: Cache dependencies
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup project
+        uses: ./.github/actions/setup-action
