@@ -27,7 +27,7 @@ export default tseslint.config(
   },
   {
     languageOptions: {
-      globals: globals.browser,
+      globals: globals.node,
       parserOptions: {
         // projectService didn't seem to pick up the tsconfig file,
         // so using the project option instead
