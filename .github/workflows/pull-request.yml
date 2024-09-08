@@ -18,3 +18,5 @@ jobs:
   publish:
     uses: ./.github/workflows/publish.yml
     needs: build
+    with:
+      isPR: true

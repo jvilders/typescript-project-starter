@@ -2,6 +2,12 @@ name: Publish
 
 on:
   workflow_call:
+    inputs:
+      isPR:
+        description: "Is it a PR?"
+        required: false
+        type: "boolean"
+        default: false
 
 jobs:
   publish:
@@ -26,5 +32,12 @@ jobs:
           name: built-package
           path: build
 
-      - name: Publish (dry run)
-        run: pnpm publish --dry-run --no-git-checks
+      - name: Version snapshot release
+        id: version-snapshot-release
+        run: |
+          pnpm exec changeset version --snapshot alpha
+
+      - name: Publish snapshot release
+        id: publish-snapshot-release
+        run: |
+          pnpm publish --dry-run --no-git-checks
