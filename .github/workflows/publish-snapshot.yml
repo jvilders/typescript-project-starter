@@ -32,8 +32,10 @@ jobs:
           name: built-package
           path: build
 
-      - name: Publish snapshot
-        uses: seek-oss/changesets-snapshot@v0
+      - name: Release Snapshot
+        uses: "the-guild-org/changesets-snapshot-action@v0.0.1"
+        with:
+          tag: alpha
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
