@@ -32,10 +32,8 @@ jobs:
           name: built-package
           path: build
 
-      - name: Release Snapshot
-        uses: "the-guild-org/changesets-snapshot-action@v0.0.1"
-        with:
-          tag: alpha
+      - name: Release snapshot
+        uses: jvilders/changesets-snapshot-action
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
