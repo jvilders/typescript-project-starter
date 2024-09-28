@@ -33,7 +33,7 @@ jobs:
           path: build
 
       - name: Release snapshot
-        uses: jvilders/changesets-snapshot-action@0.0.1
+        uses: jvilders/changesets-snapshot-action@fix/cleaning
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
