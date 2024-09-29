@@ -1,7 +1,7 @@
 name: Pull request workflow
 on:
   pull_request:
-    branches: [master, main]
+    branches: master
 
 jobs:
   cache-dependencies:
@@ -15,6 +15,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     needs: code-checks
 
-  publish:
-    uses: ./.github/workflows/publish.yml
+  publish-snapshot:
+    uses: ./.github/workflows/publish-snapshot.yml
     needs: build
+    secrets: inherit
