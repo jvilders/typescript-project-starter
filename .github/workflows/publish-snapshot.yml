@@ -15,14 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # If on the changesets PR branch, there are no changeset files, need to grab those from master
-      - name: Grab master branch changesets
-        if: github.ref_name == 'changeset-release/master'
-        uses: actions/checkout@v4
-        with:
-          ref: master
-          sparse-checkout: .changeset
-
       - name: Setup project
         uses: ./.github/actions/setup-action
 
